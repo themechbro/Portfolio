@@ -1,0 +1,446 @@
+html,body{
+width: 100%;
+height: 100%;
+font-family: 'Bruno Ace SC', cursive;
+}
+.nav-link, .navbar-brand{
+font-family: 'Bruno Ace SC', cursive;
+}.main1{
+background-image: url('https://images.pexels.com/photos/1714202/pexels-photo-1714202.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+background-attachment: fixed;
+width: 100%;
+height: 100%;
+background-size: cover;
+font-weight: 800;
+}.first-frame{
+display: flex;
+flex-direction: row;
+align-items: center;
+overflow: hidden;
+}
+.text1{
+position: relative;
+  left: -100%;
+  animation: slide-in 2s ease-in-out forwards;
+}
+@keyframes slide-in {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 1%;
+  }
+}
+.first-frame>.text1>p>em{
+font-weight: 800;
+font-size: larger;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+color: rgb(255, 0, 0);
+}
+.first-frame>.text1>p>em:first-child{
+animation: fade-in 2s ease-in-out forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.first-frame>.text1>p>em:not(:first-child) {
+  animation: slide-up 2s ease-in-out forwards;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#work{
+background-color: rgba(16, 16, 17, 0.908);
+
+}
+
+#work img{
+opacity: 0.5;
+transition: all 1s ease-in-out;
+animation: fade-in 1s ease-in-out forwards;
+
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#work img:hover{
+ transform: translateY(-10px);
+  filter: url(#wavy-filter);
+opacity: 1;
+/*transform: scale(0.9);*/
+border-bottom-right-radius: 50px;
+ border-top-left-radius: 50px;
+ transform: scale(1.05);
+
+transition: all 1s ease-in-out;
+}
+
+#wavy-filter {
+  width: 100%;
+  height: 100%;
+}
+
+.feTurbulence {
+  baseFrequency: 0.04;
+  numOctaves: 2;
+  seed: 2;
+  stitchTiles: noStitch;
+}
+
+.feDisplacementMap {
+  in: SourceGraphic;
+  scale: 20;
+}
+
+.solid-nav{
+background: rgb(60,141,146);
+background: linear-gradient(90deg, rgba(60,141,146,1) 14%, rgba(224,212,212,1) 48%, rgba(32,85,98,0.9585084033613446) 84%);
+transition: all 2s ease-in;
+}
+
+
+#work>.container, #about-me>.container, #contact-me>.container{
+border-left: 5px solid #5918df;
+}
+#about-me{
+background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+ background-blend-mode: multiply;
+}
+.heading{
+color: #eeff31;
+}
+.return{
+color: #5918df;
+}
+.text-content{
+color: #24e33a;
+}.this{
+color: red;
+}.after-this{
+color: #24e394;
+}.name, .email{
+color: #24e33a;
+}.dob{
+color: #e39d24;
+}
+.heading:hover, .return:hover, .text-content:hover{
+background-color: rgba(106, 106, 106, 0.552);
+transition: all 1s ease-out;
+}#contact-me{
+background-color: #1C1C1C;
+}
+.fa-brands{
+font-size: 2rem;
+}
+.fa-brands:hover{
+transform: scale(1.1);
+transition: all 1s ease-in;
+}
+
+
+.card-about {
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  background: rgb(40,40,55);
+ background: linear-gradient(344deg, rgba(40,40,55,1) 0%, rgba(16,16,18,1) 50%);
+ box-shadow: 4px 6px 14px #00000036;
+transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform .5s;
+}
+.card-about:hover {
+  transform: translateZ(10px) rotateX(20deg) rotateY(20deg);
+margin-top: -30px;
+}
+
+.card-about:hover .card_title {
+  transform: translateZ(50px);
+}
+
+/*Social Buttons*/
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 15px #00000027;
+  padding: 15px 10px;
+  border-radius: 5em;
+}
+
+.social-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 0 10px;
+  background-color: #fff;
+  box-shadow: 0px 0px 4px #00000027;
+  transition: 0.3s;
+}
+
+.social-button:hover {
+  background-color: #f2f2f2;
+  box-shadow: 0px 0px 6px 3px #00000027;
+}
+
+.social-buttons svg {
+  transition: 0.3s;
+  height: 20px;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.facebook svg {
+  fill: #f2f2f2;
+}
+
+.facebook:hover svg {
+  fill: #3b5998;
+}
+
+.github {
+  background-color: #333;
+}
+
+.github svg {
+  width: 25px;
+  height: 25px;
+  fill: #f2f2f2;
+}
+
+.github:hover svg {
+  fill: #333;
+}
+
+.linkedin {
+  background-color: #0077b5;
+}
+
+.linkedin svg {
+  fill: #f2f2f2;
+}
+
+.linkedin:hover svg {
+  fill: #0077b5;
+}
+
+.instagram {
+  background-color: #c13584;
+}
+
+.instagram svg {
+  fill: #f2f2f2;
+}
+
+.instagram:hover svg {
+  fill: #c13584;
+}
+
+
+/*much more button*/
+.button,
+.button::after {
+ padding: 16px 20px;
+ font-size: 18px;
+ background: linear-gradient(45deg, transparent 5%, #ff013c 5%);
+ border: 0;
+ color: #fff;
+ letter-spacing: 3px;
+ line-height: 1;
+ box-shadow: 6px 0px 0px #00e6f6;
+ outline: transparent;
+ position: relative;
+ 
+}
+
+.button::after {
+ --slice-0: inset(50% 50% 50% 50%);
+ --slice-1: inset(80% -6px 0 0);
+ --slice-2: inset(50% -6px 30% 0);
+ --slice-3: inset(10% -6px 85% 0);
+ --slice-4: inset(40% -6px 43% 0);
+ --slice-5: inset(80% -6px 5% 0);
+ content: "HOVER ME";
+ display: block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ background: linear-gradient(45deg, transparent 3%, #00e6f6 3%, #00e6f6 5%, #ff013c 5%);
+ text-shadow: -3px -3px 0px #f8f005, 3px 3px 0px #00e6f6;
+ clip-path: var(--slice-0);
+}
+
+.button:hover::after {
+ animation: 1s glitch;
+ animation-timing-function: steps(2, end);
+}
+
+@keyframes glitch {
+ 0% {
+  clip-path: var(--slice-1);
+  transform: translate(-20px, -10px);
+ }
+
+ 10% {
+  clip-path: var(--slice-3);
+  transform: translate(10px, 10px);
+ }
+
+ 20% {
+  clip-path: var(--slice-1);
+  transform: translate(-10px, 10px);
+ }
+
+ 30% {
+  clip-path: var(--slice-3);
+  transform: translate(0px, 5px);
+ }
+
+ 40% {
+  clip-path: var(--slice-2);
+  transform: translate(-5px, 0px);
+ }
+
+ 50% {
+  clip-path: var(--slice-3);
+  transform: translate(5px, 0px);
+ }
+
+ 60% {
+  clip-path: var(--slice-4);
+  transform: translate(5px, 10px);
+ }
+
+ 70% {
+  clip-path: var(--slice-2);
+  transform: translate(-10px, 10px);
+ }
+
+ 80% {
+  clip-path: var(--slice-5);
+  transform: translate(20px, -10px);
+ }
+
+ 90% {
+  clip-path: var(--slice-1);
+  transform: translate(-10px, 0px);
+ }
+
+ 100% {
+  clip-path: var(--slice-1);
+  transform: translate(0);
+ }
+}
+
+/*Work card css*/
+.card-work {
+  height: 354px;
+  width: 290px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-radius: 16px;
+  box-shadow: 0 0 20px 8px #d0d0d0;
+  overflow: hidden;
+}
+
+ /*Image*/
+.card-image {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/*Description */
+.card-description {
+  display: flex;
+  position: absolute;
+  gap: .5em;
+  flex-direction: column;
+
+  color: #ffffff;
+background-color: #212121;
+ box-shadow: 15px 15px 30px rgb(25, 25, 25),
+             -15px -15px 30px rgb(60, 60, 60);
+  height: 70%;
+  bottom: 0;
+  border-radius: 16px;
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+  padding: 1rem;
+}
+
+/*Text*/
+.text-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.text-body {
+  font-size: 1rem;
+  line-height: 130%;
+}
+
+
+/* Hover states */
+.card-work:hover .card-description {
+filter: blur(0px);
+  transform: translateY(100%);
+}
+.card-work:hover .four,.card-work:hover .three,.card-work:hover .two,.card-work:hover .one {
+filter: blur(0px);
+}
+.collection{
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-around;
+}
+.one{
+background-image: url('ac-mirage.png');
+  background-size: 100% 100%;
+background-repeat: no-repeat ;
+filter: blur(5px);
+}.two{
+background-image: url('farcry6.png');
+background-size: 100% 100%;
+filter: blur(5px);
+}.three{
+background-image: url('Yelcamp.png');
+background-size: 100% 100%;
+filter: blur(5px);
+}.four{
+background-image: url('random.png');
+background-size: 100% 100%;
+filter: blur(5px);
+}
