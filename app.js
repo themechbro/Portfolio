@@ -19,7 +19,9 @@ var workimg= document.getElementsByTagName('img');
 slideText.style.left ='0%';
 workimg.style.left='0%';
 
-///Slide in text//
+//trailing cursor//
+
+
 
 
 
