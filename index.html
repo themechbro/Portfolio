@@ -13,19 +13,44 @@
     <script src="https://kit.fontawesome.com/91a1f38d53.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <style>
-    .trail { /* className for the trail elements */
-    position: absolute;
-    height: 6px; width: 6px;
-    border-radius: 3px;
-  background-color: #FFFFFF;
-background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%);
+    /* CSS for the trailing pointer */
+    #trailing-pointer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50px; /* Customize the size of the trailing pointer */
+      height: 50px;
+     background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+ /* Customize the color of the trailing pointer */
+      border-radius: 50%;
+      pointer-events: none; /* Ensures the trailing pointer does not interfere with mouse events */
+      z-index: 9999; /* Ensures the trailing pointer is on top of other elements */
+      opacity: 0.8; /* Customize the opacity of the trailing pointer */
+      transform: scale(0.6); /* Customize the scale of the trailing pointer */
+      animation: trailingEffect 1s infinite linear; /* Add animation for trailing effect */
+    }
 
-  }
+    /* Keyframes for trailing effect animation */
+    @keyframes trailingEffect {
+      0% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+      50% {
+        opacity: 0.8;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 0;
+        transform: scale(0.6);
+      }
+    }
   </style>
 <title>Adrin</title>
 </head>
 <body>
-<div class="trail"></div> <!-- The trailing element -->
+<div id="trailing-pointer"></div> <!-- The trailing element -->
     <section class="main1">
 <div class="container  p-5">
      <nav class="navbar navbar-expand-lg navbar-light  shadow-lg rounded">
@@ -197,75 +222,20 @@ background-image: linear-gradient(180deg, #FFFFFF 0%, #6284FF 50%, #FF0000 100%)
 </div>
 </section>
 
-
-
-
 <script>
- var dots = [],
-    mouse = {
-      x: 0,
-      y: 0
-    };
+    // JavaScript to update the position of the trailing element
+    document.addEventListener('mousemove', function(e) {
+      var trailingCursor = document.getElementById('trailing-pointer');
+      trailingCursor.style.left = e.clientX + 'px';
+      trailingCursor.style.top = e.clientY + 'px';
+    });
 
-// The Dot object used to scaffold the dots
-var Dot = function() {
-  this.x = 0;
-  this.y = 0;
-  this.node = (function(){
-    var n = document.createElement("div");
-    n.className = "trail";
-    document.body.appendChild(n);
-    return n;
-  }());
-};
-// The Dot.prototype.draw() method sets the position of 
-  // the object's <div> node
-Dot.prototype.draw = function() {
-  this.node.style.left = this.x + "px";
-  this.node.style.top = this.y + "px";
-};
-
-// Creates the Dot objects, populates the dots array
-for (var i = 0; i < 12; i++) {
-  var d = new Dot();
-  dots.push(d);
-}
-
-// This is the screen redraw function
-function draw() {
-  // Make sure the mouse position is set everytime
-    // draw() is called.
-  var x = mouse.x,
-      y = mouse.y;
-  
-  // This loop is where all the 90s magic happens
-  dots.forEach(function(dot, index, dots) {
-    var nextDot = dots[index + 1] || dots[0];
-    
-    dot.x = x;
-    dot.y = y;
-    dot.draw();
-    x += (nextDot.x - dot.x) * .6;
-    y += (nextDot.y - dot.y) * .6;
-
-  });
-}
-
-addEventListener("mousemove", function(event) {
-  //event.preventDefault();
-  mouse.x = event.pageX;
-  mouse.y = event.pageY;
-});
-
-// animate() calls draw() then recursively calls itself
-  // everytime the screen repaints via requestAnimationFrame().
-function animate() {
-  draw();
-  requestAnimationFrame(animate);
-}
-
-// And get it started by calling animate().
-animate();
+    // JavaScript to adjust the trailing element size with the window size
+    window.addEventListener('resize', function() {
+      var trailingCursor = document.getElementById('trailing-pointer');
+      trailingCursor.style.width = '20px'; /* Customize the size of the trailing element */
+      trailingCursor.style.height = '20px';
+    });
   </script>
 <script>
     $(function(){
